@@ -1,0 +1,650 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* scroll suave */
+    scroll-behavior: smooth;
+    font-family: var(--fuenteGeneral);
+}
+
+:root {
+    /* Variables */
+    --colorAzul: #247eaa;
+    --colorAzul2: #2f9eda;
+    --colorAzulOscuro: #001a46;
+    --colorRosa: #83125e;
+    --colorSombra: #474747;
+    --gris: #e0e0e0;
+    --colorSombra2: #20202049;
+    --fuenteGeneral: "Poppins", sans-serif;
+}
+
+.container {
+    min-width: 350px;
+}
+
+.hero {
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    /* Flex */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+
+/* Imagen del hero */
+
+.hero__img {
+    display: block;
+    /* min-width: 350px; */
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 15px;
+    padding-top: 2.5rem;
+    animation-name: movimientoImg;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.hero__imagen {
+    box-shadow: 0 0 25px var(--colorAzul);
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+/* animacion de la imagen */
+
+@keyframes movimientoImg {
+    0% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+
+/* imagen de la fecha */
+
+.contenedor__fecha {
+    background: linear-gradient( 70deg, transparent 10%, var(--colorRosa) 10%, var(--colorAzul2) 90%, transparent 10%);
+    width: 50%;
+    max-width: 800px;
+    /* min-width: 350px; */
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    height: 100px;
+    padding: 15px;
+    line-height: 35px;
+    font-size: 0.68rem;
+    min-width: 370px;
+}
+
+.titulo__fecha {
+    text-transform: uppercase;
+}
+
+
+/* Animacion de boton */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 19px 22px;
+    transition: all 0.2s ease;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: linear-gradient(50deg, var(--colorRosa) 10%, var(--colorAzul2));
+    width: 62px;
+    height: 62px;
+    transition: all 0.3s ease;
+}
+
+.cta span {
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: linear-gradient(50deg, var(--colorRosa) 10%, var(--colorAzul2));
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active {
+    transform: scale(0.96);
+}
+
+.text__hero {
+    color: white;
+    /* le damos altura para que el elemento 
+            se vea claramente*/
+    height: 150px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 4px 4px black;
+}
+
+
+/* MediaQueries */
+
+
+/* Controlamos que la imagen no sea lo suficiente imagen para que eche los demás elementos del propio div */
+
+
+/* SOLUCIONAR COLUMN NO HACE MEDIA QUERY */
+
+@media screen and (min-width: 768px) {
+    .hero__img {
+        max-width: 650px;
+    }
+    .contenedor__fecha {
+        font-size: 1rem;
+    }
+    .text__hero {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    footer .zona1 .organ_utrera {
+        flex-direction: row;
+    }
+    /* arreglo de contenedor */
+    .contenedor__fecha {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* BOTON DE INSCRIPCION */
+
+section.container {
+    text-align: center;
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (min-width:768px) {
+    section.container {
+        flex-direction: row;
+    }
+}
+
+section.container a:hover {
+    border-bottom: 1px solid #111;
+}
+
+h1 {
+    font-size: 2em;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+/* TEXTO NORMAL DE FECHA */
+
+p {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    outline: none;
+    position: relative;
+    border: 2px solid #111;
+    padding: 15px 50px;
+    overflow: hidden;
+}
+
+
+/*button:before (attr data-hover)*/
+
+button:hover:before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+button:before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 1.1em;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 0.8em;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/*button div (button text before hover)*/
+
+button:hover div {
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+
+button div {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 0.8em;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* FOOTER REALIZADO POR RUBEN */
+
+footer img {
+    display: block;
+    max-width: 100%;
+}
+
+footer .titulo__footer {
+    background-color: var(--colorAzul2);
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+footer .titulo__footer h4 {
+    color: var(--colorAzulOscuro);
+    text-align: center;
+}
+
+footer .titulo__footer img {
+    width: 100px;
+}
+
+footer .titulo__footer .cont__titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .zonas {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .zonas h2 {
+    font-family: "Rajdhani";
+    text-align: center;
+    color: var(--colorAzulOscuro);
+}
+
+footer .zona1 {
+    border-bottom: 3px solid black;
+    flex: 1 1 30%;
+}
+
+footer .zona1 h2 {
+    padding-bottom: 1rem;
+}
+
+footer .zona1 img {
+    width: 170px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+footer .zona1 img:nth-child(3) {
+    width: 400px;
+}
+
+footer .zona1 .organ_utrera {
+    display: flex;
+    margin-bottom: 2rem;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1300px) {
+    footer .zona1 .organ_utrera {
+        flex-direction: row;
+    }
+}
+
+footer .zona2 {
+    border-bottom: 3px solid black;
+    flex: 1 1 20%;
+    text-align: center;
+}
+
+footer .zona2 img {
+    width: 200px;
+    margin: 0 auto;
+}
+
+footer .zona3 {
+    border-bottom: 3px solid black;
+    flex: 1 1 20%;
+    text-align: center;
+}
+
+footer .zona3 img {
+    width: 200px;
+    margin: 0 auto;
+}
+
+footer .zona4 {
+    flex: 1 1 20%;
+    text-align: center;
+}
+
+footer .zona4 img {
+    width: 200px;
+    margin: 5px auto;
+}
+
+@media screen and (min-width: 768px) {
+    footer .zonas {
+        flex-direction: row;
+    }
+    footer .zona1 {
+        border-right: 3px solid black;
+        border-bottom: 0px;
+    }
+    footer .zona2 {
+        border-right: 3px solid black;
+        border-bottom: 0px;
+    }
+    footer .zona3 {
+        border-bottom: 0px;
+        border-right: 3px solid black;
+    }
+    /* arreglo del parrafo de fecha */
+}
+
+footer .subfooter {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: var(--colorAzulOscuro);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (min-width:768px){
+    footer .subfooter {
+        flex-direction: row;        
+    }
+}
+
+footer .subfooter .subfooter__redes{
+   display: flex;
+   justify-content: center;
+   /* padding: 1rem; */
+   font-size: 2.3rem;
+}
+
+footer .subfooter .subfooter__redes a{
+    margin: 10px;
+}
+
+footer .subfooter .subfooter__redes a:hover{
+    color: #111;
+}
+
+
+/* Boton del scroll top */
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--colorAzulOscuro);
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+
+/* CARDS */
+
+span {
+    font-weight: bold;
+}
+
+.container__info {
+    margin: 50px 0;
+}
+
+.container__card {
+    max-width: 900px;
+    padding: 20px;
+    padding-bottom: 40px;
+    margin: auto;
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+}
+
+.icon {
+    width: 210px;
+}
+
+.card {
+    width: 210px;
+    margin: 50px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px -10px var(--colorSombra2);
+}
+
+.info__description {
+    padding: 12px;
+    width: 210px;
+    height: 200px;
+    color: var(--colorSombra);
+    border-radius: 20px;
+    background-color: var(--gris);
+    border-radius: 20px 0;
+}
+
+.c1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.c2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.c3 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.c4 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+
+/* BLOQUE DE "NO TE OLVIDES" */
+
+.no__olvides {
+    margin: 0 auto;
+    background-color: var(--colorAzul2);
+    max-width: 70%;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.no__olvides h3 {
+    font-size: 1.5rem;
+}
+
+.no__olvides__almu__port {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.imagen__olvides {
+    width: 80px;
+}
+
+.imagen__olvides img {
+    width: 100%;
+    display: block;
+}
+
+
+/* MEDIA QUERY CARDS */
+
+@media screen and (min-width: 1300px) {
+    .card {
+        box-shadow: none;
+    }
+    .container__card {
+        max-width: 1500px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .info__description {
+        margin-top: -220px;
+        background-color: transparent;
+        transition: 2000ms cubic-bezier(0.5, 0, 0, 1), opacity 1400ms linear;
+        opacity: 0;
+    }
+    .card:hover {
+        box-shadow: 1px 1px 20px -10px var(--colorSombra2);
+    }
+    .card:hover .info__description {
+        margin-top: 0;
+        border-radius: 0px 0px 20px 20px;
+        opacity: 1;
+    }
+    .card:hover .icon {
+        margin-top: -110px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    /*COLOR DE LAS CARD*/
+    .c1:hover .icon {
+        background-color: var(--colorAzul2);
+    }
+    .c2:hover .icon {
+        background-color: var(--colorAzul2);
+    }
+    .c3:hover .icon {
+        background-color: var(--colorAzul2);
+    }
+    .c4:hover .icon {
+        background-color: var(--colorAzul2);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .info__description {
+        border-radius: 20px 0;
+    }
+    .c1 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .c2 {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .c3 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .c4 {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .no__olvides__almu__port {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .no__olvides {
+        max-width: 40%;
+    }
+}
